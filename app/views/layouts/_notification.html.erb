@@ -9,10 +9,17 @@
   <ul class="cart-index"><b><%= link_to "Không có thông báo!", "#" %></b></ul>
 <% else %>
   <ul id="notification-course">
-    <% current_user.notifications.each do |noti| %>
-      <li>
-        <%= link_to noti.content, course_path(noti.slug) %>
-      </li>
-    <% end %>
+    <div class="many-items">
+      <% current_user.notifications.each do |noti| %>
+        <li>
+          <%= link_to course_path noti.slug  do %>
+            <div class="shortened-text" title="<%= noti.content %>">
+              <%= image_tag noti.user.avatar.url, class: "img-cart-home" %>
+              <%= noti.content %>
+            </div>
+          <% end %>
+        </li>
+      <% end %>
+    </div>
   </ul>
 <% end %>

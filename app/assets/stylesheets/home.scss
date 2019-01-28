@@ -43,6 +43,13 @@ body {
   background: $blue-moke;
 }
 
+.shortened-text {
+  white-space: nowrap; 
+  max-width: 100%; 
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .line-clamp {
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
